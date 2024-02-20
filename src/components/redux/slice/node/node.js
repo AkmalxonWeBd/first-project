@@ -1,44 +1,50 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { api, apiUrl } from '../../../../Api/api';
+import { createApi } from "@reduxjs/toolkit/query/react";
+import { api } from "../../../../Api/api";
 
-export const NodeCrud = createApi({
-  reducerPath: 'nodeApi',
-  baseQuery: api, // Replace with your actual API base URL
-  tagTypes: ['Node'],
-  endpoints: (builder) => ({
-    getNode: builder.query({
-      query: () => 'finance_orders/',
-      providesTags: ['Node'],
+export const NoteCrud = createApi({
+  reducerPath: "getNotetData",
+  baseQuery: api,
+  tagTypes: ["Note"],
+  endpoints: (build) => ({
+    getNote: build.query({
+      query: (body) =>
+        "finance_orders/?products=true",
+      method: "GET",
+      providesTags: ["Note"],
     }),
-    createNode: builder.mutation({
-      query: (newNode) => ({
-        url: 'finance_orders/',
-        method: 'POST',
-        body: newNode,
+
+    createNote: build.mutation({
+      query: (body) => ({
+        url: "finance_orders/",
+        method: "POST",
+        body,
       }),
-      invalidatesTags: ['Node'],
+      invalidatesTags: ["Note"],
     }),
-    updateNode: builder.mutation({
-      query: ({ id, ...rest }) => ({
-        url: `finance_products/${id}/`,
-        method: 'PATCH',
-        body: rest,
+
+    updateNote: build.mutation({
+      query: (body) => ({
+        url: `finance_orders/${body.get("id")}`,
+        method: "PATCH",
+        body,
       }),
-      invalidatesTags: ['Node'],
+      invalidatesTags: ["Note"],
     }),
-    deleteNode: builder.mutation({
-      query: (id) => ({
-        url: `finance_products/${id}/`,
-        method: 'DELETE',
+
+    deleteNote: build.mutation({
+      query: (body) => ({
+        url: `finance_orders/${body.id}`,
+        method: "DELETE",
+        body,
       }),
-      invalidatesTags: ['Node'],
+      invalidatesTags: ["Note"],
     }),
   }),
 });
 
 export const {
-  useGetNodeQuery,
-  useCreateNodeMutation,
-  useDeleteNodeMutation,
-  useUpdateNodeMutation,
-} = NodeCrud;
+  useCreateNoteMutation,
+  useDeleteNoteMutation,
+  useGetNoteQuery,
+  useUpdateNoteMutation,
+} = NoteCrud;

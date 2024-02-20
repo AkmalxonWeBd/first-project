@@ -12,6 +12,13 @@ function Login() {
  
 
   const checkLogin = async () => {
+    const resolveAfter3Sec = new Promise(resolve => setTimeout(resolve, 1000));
+    toast.promise(
+      resolveAfter3Sec,
+      {
+        pending: 'Kutib turing',
+      }
+    );
     try {
       const formData = new FormData();
       formData.append('username', username);
@@ -22,7 +29,7 @@ function Login() {
         setTimeout(() => {
           localStorage.setItem('user', response.data.access);
           navigate('/admin/home');
-        }, 1000);
+        }, 2000);
       } else {
         // Handle non-OK response without throwing an error unnecessarily
         toast.error('Siz kira olmadingiz');

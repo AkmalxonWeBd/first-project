@@ -2,46 +2,44 @@ import { createApi } from '@reduxjs/toolkit/query/react';
 import { api } from '../../../../Api/api';
 
 
-
-
-export const categoriesApi = createApi({
-  reducerPath: 'categoriesApi',
+export const SubcategoriesCrud = createApi({
+  reducerPath: 'Subcatigories',
   baseQuery: api, // Replace with your actual API base URL
-  tagTypes: ['Category'],
+  tagTypes: ['subCategories'],
   endpoints: (builder) => ({
-    getCategories: builder.query({
+    getSubcatigories: builder.query({
       query: () => 'categories/',
-      providesTags: ['Category'],
+      providesTags: ['subCategories'],
     }),
-    createCategory: builder.mutation({
+    createSubCatigories: builder.mutation({
       query: (newCategory) => ({
         url: 'categories/',
         method: 'POST',
         body: newCategory,
       }),
-      invalidatesTags: ['Category'],
+      invalidatesTags: ['subCategories'],
     }),
-    updateCategory: builder.mutation({
+    updateSubcatigories: builder.mutation({
       query: ({ id, ...rest }) => ({
         url: `categories/${id}/`,
         method: 'PATCH',
         body: rest,
       }),
-      invalidatesTags: ['Category'],
+      invalidatesTags: ['subCategories'],
     }),
-    deleteCategory: builder.mutation({
+    deleteSubCatigories: builder.mutation({
       query: (id) => ({
         url: `categories/${id}/`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['Category'],
+      invalidatesTags: ['subCategories'],
     }),
   }),
 });
 
 export const {
-  useGetCategoriesQuery,
-  useCreateCategoryMutation,
-  useUpdateCategoryMutation,
-  useDeleteCategoryMutation,
-} = categoriesApi;
+   useGetSubcatigoriesQuery,
+   useCreateSubCatigoriesMutation,
+   useDeleteSubCatigoriesMutation,
+   useUpdateSubcatigoriesMutation,
+} = SubcategoriesCrud;

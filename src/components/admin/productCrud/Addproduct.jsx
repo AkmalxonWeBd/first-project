@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import Modal from '../../generic/Modal';
-import ImageUpload from '../../ImageUpload/ImageUpload';
-import { MdOutlineInsertPhoto } from 'react-icons/md'; 
+import { MdOutlineInsertPhoto } from 'react-icons/md';
 import { toast } from 'react-toastify';
-import { useCreateProductMutation } from '../../redux/slice/client/getProduct';
+import { useCreateProductMutation, useGetProductsQuery } from '../../redux/slice/product';
+import Modal from '../../generic/modal';
+import ImageUpload from '../../generic/imgUpload';
 import { useGetSubCategoryQuery } from '../../redux/slice/client/subcategory';
-import { useGetCategoryQuery } from '../../redux/slice/client/category';
+import { useGetCategoriesQuery } from '../../redux/slice/CategoriesCrud/crud';
+import { useNavigate } from 'react-router-dom';
 
 const AddProduct = ({object}) => {
   // state
   const [skip, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState(object);
-
+  const navigate =useNavigate()
   // redux
+  const { data, isLoading, refetch } = useGetProductsQuery();
   const [createProduct, { isLoading: isCreating }] = useCreateProductMutation();
-  const { data, isLoading, refetch } = useGetCategoryQuery({skip});
-  const { data:subData } = useGetSubCategoryQuery({skip})
-
-
-
+  const { data:subData } = useGetSubCategoryQuery()
+  const {data:catigories} =useGetCategoriesQuery()
   // fuction
   const onClose = () => {
     setOpen(false);
@@ -41,14 +40,26 @@ const AddProduct = ({object}) => {
 
     try {
       await createProduct(formData).unwrap();
-      toast.success(`Category ${inputValue.title} added successfully`);
+      toast.success(`Category ${inputValue?.title} added successfully`);
       setInputValue({
         title: '',
         img: '',
       });
       setOpen(false);
     } catch (error) {
-      toast.error(`Failed to add category ${inputValue.title}`);
+      if (error.status==400) {
+        toast.error(`Malumot tugri kiritilmagan !!!`)
+      }
+      else if (error.status==401) {
+        toast.error(`Siz foydalanish huquqiga ega emasiz !!!`)
+
+        localStorage.clear()
+        navigate('/admin')
+      }
+     else if (error.status >=500) {
+        toast.error('Server tomondan xatolik yokida internet ulangan')
+      }
+  
     }
   };
 
@@ -57,7 +68,7 @@ const AddProduct = ({object}) => {
       <button
         onClick={() => setOpen(true)}
         type="button"
-        className="inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        className="bg-blue-500 inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
         +
         Maxsulot
@@ -131,9 +142,9 @@ const AddProduct = ({object}) => {
                   onChange={(e) => setInputValue({ ...inputValue, category: e.target.value })}
                   className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500">
                   <option value="Hech Biri">Hech Biri</option>
-                  {data?.map((value) => {
+                  {catigories?.map((value) => {
                     return (
-                      <option value={value.id}>{value.title}</option>
+                      <option value={value?.id}>{value?.title}</option>
                     )
                   })}
                 </select>

@@ -3,36 +3,46 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { api } from '../../../../Api/api';
 
 
+
 export const ProductCrud = createApi({
     baseQuery:api,
-    reducerPath: 'FamousData',
-    tagTypes: ['Famous'],
+    reducerPath: 'ProductData',
+    tagTypes: ['Product'],
     endpoints: (builder) => ({
         getProducts: builder.query({
             query: () => 'products/',
-            providesTags: ['Famous'],
+            providesTags: ['Product'],
         }),
-        createFamous: builder.mutation({
+        createProduct: builder.mutation({
             query: (body) => ({
                 url: `products/`,
                 method: "POST",
                 body,
             }),
-            invalidatesTags: ['Famous'],
+            invalidatesTags: ['Product'],
         }),
-        deleteFamous: builder.mutation({
+        deleteProduct: builder.mutation({
             query: (body) => ({
-                url: `products/body.id}`,
+                url: `products/${body.id}`,
                 method: 'DELETE',
                 body,
             }),
-            invalidatesTags: ['Famous']
+            invalidatesTags: ['Product']
+        }),
+        updateProduct: builder.mutation({
+            query: (body) => ({
+                url:`products/${body.get("id")}/`,
+                method: "PATCH",
+                body,
+            }),
+            invalidatesTags: ['Product'],
         }),
     }),
 });
 
 export const {
     useGetProductsQuery,
-    useDeleteFamousMutation,
-    useCretteFamousMutation,
+    useCreateProductMutation,
+    useDeleteProductMutation,
+    useUpdateProductMutation,
 } = ProductCrud;

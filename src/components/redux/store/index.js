@@ -23,25 +23,33 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { categoriesApi } from '../slice/CategoriesCrud/crud';
 import { ProductCrud } from '../slice/product';
-import { NodeCrud } from '../slice/node/node';
+import { OrderCrud } from '../slice/order/order';
+import { SubcategoriesCrud } from '../slice/SubCategories/crud';
+import { SubCategoryCrud } from '../slice/client/subcategory';
+import { NoteCrud } from '../slice/node/node';
 
 export const store = configureStore({
   reducer: {
     [categoriesApi.reducerPath]: categoriesApi.reducer,
     [ProductCrud.reducerPath] :ProductCrud.reducer,
-    [NodeCrud.reducerPath] :NodeCrud.reducer,
-
-
+    [OrderCrud.reducerPath] :OrderCrud.reducer,
+    [SubcategoriesCrud.reducerPath] :SubcategoriesCrud.reducer,
+    [SubCategoryCrud.reducerPath] :SubCategoryCrud.reducer,
+    [NoteCrud.reducerPath] :NoteCrud.reducer,
     
     
+
+    
+  
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       categoriesApi.middleware,
       ProductCrud.middleware,
-      NodeCrud.middleware,
-
-      
+      OrderCrud.middleware,
+      SubcategoriesCrud.middleware,
+      SubCategoryCrud.middleware,
+      NoteCrud.middleware,
       ), 
   
 
