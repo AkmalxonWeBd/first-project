@@ -50,10 +50,6 @@ const Table = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.error}</div>;
 
-<<<<<<< HEAD
-function Table() {
-=======
->>>>>>> 0a32c754a455ad9ab69c2c8b8e1a682147036177
   return (
     <div>
       <AddCategories />
@@ -93,7 +89,3 @@ export default Table;
 
 
 
-<<<<<<< HEAD
-export default Table
-=======
->>>>>>> 0a32c754a455ad9ab69c2c8b8e1a682147036177

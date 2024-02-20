@@ -9,7 +9,11 @@ export default function Layout() {
   return (
         <div className="flex">
           < Sidebar/>
+
           <div className="w-full layout">
+        <div className="flex h-[100px] px-[40px] justify-end items-center">
+     <div> <button className="bg-red-500 text-white p-2 w-[120px]  rounded-xl" >Chiqish</button></div>
+        </div>
             <Outlet />
           </div>
         </div>

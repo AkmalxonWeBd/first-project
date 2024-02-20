@@ -4,6 +4,7 @@ import Layout from '../components/admin/Layout/index';
 import Login from '../components/admin/auth/sigin';
 import CategoriesCrud from '../components/admin/CategoriesCrud/table';
 import ProductCom from '../components/admin/productTest';
+import NodeCom from '../components/admin/node/node';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
               <Route path="/admin/products" element={<ProductCom/>} />
               <Route path="/admin/deliveries" element={<h1>deliveries</h1>} />
               <Route path="/admin/categories" element={<CategoriesCrud/>} />
-              <Route path="/admin/note" element={<h1>note</h1>} />
+              <Route path="/admin/note" element={<NodeCom/>} />
             </Route>
       </Routes>
       </BrowserRouter>
