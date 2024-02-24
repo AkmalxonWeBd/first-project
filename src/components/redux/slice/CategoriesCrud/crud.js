@@ -1,5 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { api } from "../../../../api/api.js";
+import { api } from "../../../../Api/api";
 
 export const CategoryCrud = createApi({
   reducerPath: "getCategorytData",
