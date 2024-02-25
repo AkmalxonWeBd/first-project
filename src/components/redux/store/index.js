@@ -26,9 +26,11 @@ import { ProductCrud } from '../slice/product';
 import { OrderCrud } from '../slice/order/order';
 import { SubcategoriesCrud } from '../slice/SubCategories/crud';
 import { SubCategoryCrud } from '../slice/client/subcategory';
+import { GetBanner } from '../slice/banner';
 
 export const store = configureStore({
   reducer: {
+    [GetBanner.reducerPath] :GetBanner.reducer,
     [categoriesApi.reducerPath]: categoriesApi.reducer,
     [ProductCrud.reducerPath] :ProductCrud.reducer,
     [OrderCrud.reducerPath] :OrderCrud.reducer,
@@ -44,6 +46,7 @@ export const store = configureStore({
       OrderCrud.middleware,
       SubcategoriesCrud.middleware,
       SubCategoryCrud.middleware,
+      GetBanner.middleware,
       ), 
   
 
