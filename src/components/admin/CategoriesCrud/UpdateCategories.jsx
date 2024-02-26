@@ -1,31 +1,29 @@
 import React, { useState } from "react";
-import { MdOutlineInsertPhoto } from "react-icons/md";
 import { toast } from "react-toastify";
-import {
-  useUpdateCategorieMutation,
-  useGetCategoryQuery,
-} from "../../redux/slice/CategoriesCrud/crud";
 import Modal from "../../generic/modal";
+import { useUpdateCategorieMutation } from "../../redux/slice/CategoriesCrud/crud";
 import ImageUpload from "../../generic/imgUpload";
+import { MdOutlineInsertPhoto } from "react-icons/md";
+
 
 const UpdateCategories = ({ object }) => {
   const [skip, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState(object);
-  const [updateCategory, { isLoading: isUpdating }] =
-    useUpdateCategorieMutation();
-  const { data: categories } = useGetCategoryQuery();
+  const [updateCategory, { isLoading: isUpdating }] = useUpdateCategorieMutation();
+
   const onClose = () => {
     setOpen(false);
   };
+
   const updateData = async () => {
     const formData = new FormData();
     formData.append("id", inputValue.id);
     formData.append("name", inputValue.title);
     formData.append("img", inputValue.img);
+
     try {
       await updateCategory(formData).unwrap();
       toast.success(`Category ${inputValue.name} updated successfully`);
-
       setOpen(false);
     } catch (error) {
       console.error("Failed to update category:", error);
@@ -44,7 +42,7 @@ const UpdateCategories = ({ object }) => {
       </button>
       {skip && (
         <Modal loader={isUpdating} closeModal={onClose} addFunc={updateData}>
-          <div className="grid grid-cols-2 gap-3 ">
+          <div className="grid grid-cols-2 gap-3">
             <div className="flex flex-col gap-2">
               <div>
                 <label htmlFor="Category Name:" className="text-black">
@@ -78,5 +76,6 @@ const UpdateCategories = ({ object }) => {
     </div>
   );
 };
+
 
 export default UpdateCategories;
