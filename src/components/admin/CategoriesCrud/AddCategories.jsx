@@ -78,4 +78,5 @@ const AddCategories = () => {
   );
 };
 
+
 export default AddCategories;
