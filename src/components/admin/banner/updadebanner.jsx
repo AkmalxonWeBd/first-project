@@ -3,7 +3,7 @@ import { BiEdit } from 'react-icons/bi';
 import { MdOutlineInsertPhoto } from 'react-icons/md';
 import { useGetBannersQuery, useUpdateBannersMutation } from '../../../redux/slice/client/banner';
 import ImageUpload from '../../ImageUpload/ImageUpload';
-import Modal from '../../generic/Modal';
+import Modal from '../../generic/modal';
 
 const UpdateProduct = ({ item }) => {
   // state
