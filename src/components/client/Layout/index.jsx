@@ -3,6 +3,8 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../home/footer";
 import Navbar from "../navbar";
+import ProductShop from "../products/products";
+
 
 
 const ClientLayout = () => {
@@ -11,6 +13,7 @@ const ClientLayout = () => {
       <Navbar />
      <Outlet/>
       <Footer />
+      <ProductShop/>
     </div>
   );
 };
