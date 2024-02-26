@@ -1,14 +1,14 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { api } from "../../../../Api/api.js";
 
-export const CategoryCrud = createApi({
-  reducerPath: "getCategorytData",
-  baseQuery: api,
-  tagTypes: ["getCategoryt"],
-  endpoints: (build) => ({
-    getCategory: build.query({
-      query: (body) => "categories/",
-      providesTags: ["getCategoryt"],
+export const categoriesApi = createApi({
+  reducerPath: 'categoriesApi',
+  baseQuery: api, // Replace with your actual API base URL
+  tagTypes: ['Category'],
+  endpoints: (builder) => ({
+    getCategories: builder.query({
+      query: () => 'categories/',
+      providesTags: ['Category'],
     }),
     getProductId: build.query({
       query: (body) => ({

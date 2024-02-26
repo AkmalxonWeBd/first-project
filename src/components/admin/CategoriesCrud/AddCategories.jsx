@@ -5,6 +5,7 @@ import Modal from "../../generic/modal";
 import { useCreateCategoriaMutation } from "../../redux/slice/CategoriesCrud/crud";
 
 
+
 const AddCategories = () => {
   const [open, setOpen] = useState(false);
 
@@ -38,16 +39,16 @@ const AddCategories = () => {
 
 
   return (
- 
+//  
     <div>
-      <button
-        onClick={() => setOpen(true)}
-        type="button"
-        className="bg-blue-500 inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-      >
-        +
-        Maxsulot
-      </button>
+    <button
+      onClick={() => setOpen(true)}
+      type="button"
+      className=" bg-blue-600 inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+    >
+      +
+      Mahsulod turi
+    </button>
     {open && (
       <Modal loader={isCreating} closeModal={() => setOpen(false)} addFunc={handleSubmit}>
         <div className="flex flex-col gap-3">

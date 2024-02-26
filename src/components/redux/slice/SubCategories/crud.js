@@ -2,6 +2,7 @@ import { createApi } from '@reduxjs/toolkit/query/react';
 import { api } from '../../../../Api/api';
 
 
+
 export const SubcategoriesCrud = createApi({
   reducerPath: 'Subcatigories',
   baseQuery: api, // Replace with your actual API base URL
