@@ -4,7 +4,7 @@ import DeleteCategorie from './delete.jsx';
 import UpdateProduct from './Update.jsx';
 import AddImgUpload from './Imgupload.jsx';
 import { useGetProductQuery } from '../../redux/slice/product/index.js';
-import View from './view copy.jsx';
+import View from './view.jsx';
 
 const ProductTable = () => {
     const { data, error, isLoading } = useGetProductQuery();
