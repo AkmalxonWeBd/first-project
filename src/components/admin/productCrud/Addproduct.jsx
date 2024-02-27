@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { MdOutlineInsertPhoto } from 'react-icons/md';
 import { toast } from 'react-toastify';
-import { useCreateProductMutation, useGetProductsQuery } from '../../redux/slice/product';
 import Modal from '../../generic/modal';
 import ImageUpload from '../../generic/imgUpload';
 import { useGetSubCategoryQuery } from '../../redux/slice/client/subcategory';
 
 import { useNavigate } from 'react-router-dom';
+import { useCreateProductMutation, useGetProductQuery } from '../../redux/slice/product';
 import { useGetCategoryQuery } from '../../redux/slice/CategoriesCrud/crud';
 
 const AddProduct = ({object}) => {
@@ -15,7 +15,7 @@ const AddProduct = ({object}) => {
   const [inputValue, setInputValue] = useState(object);
   const navigate =useNavigate()
   // redux
-  const { data, isLoading, refetch } = useGetProductsQuery();
+  const { data, isLoading, refetch } = useGetProductQuery();
   const [createProduct, { isLoading: isCreating }] = useCreateProductMutation();
   const { data:subData } = useGetSubCategoryQuery()
   const {data:catigories} =useGetCategoryQuery()

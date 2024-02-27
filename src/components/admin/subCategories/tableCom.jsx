@@ -57,7 +57,6 @@ const TableCom = () => {
                 <th scope="col" class="p-4 flex gap-2">
                   <button>edit</button>
                   <button>delte</button>
-
                 </th>
 
               </tr>

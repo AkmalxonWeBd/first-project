@@ -10,8 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import { CiEdit } from "react-icons/ci";
 import { useGetCategoryQuery } from '../../redux/slice/CategoriesCrud/crud';
 const UpdateProduct = ({object}) => {
-
-    console.log(object,'object');
   // state
   const [skip, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState(object);

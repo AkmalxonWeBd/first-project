@@ -4,8 +4,6 @@ import { toast } from "react-toastify";
 import Modal from "../../generic/modal.jsx";
 import { useDeleteCategorieMutation } from "../../redux/slice/CategoriesCrud/crud.js";
 
-
-
 export default function DeleteCategorie({ ID }) {
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = () => setIsOpen(false);
