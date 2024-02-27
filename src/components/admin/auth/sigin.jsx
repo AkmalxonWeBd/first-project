@@ -8,6 +8,7 @@ import axios from 'axios';
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [type , setType] = useState("password")
   const navigate = useNavigate();
  
 
@@ -57,11 +58,16 @@ function Login() {
           <div className="inputBx">
             <span></span>
             <input
-              type="password"
+              type={type}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {type==="password"?(
+              <span className='icon-span' onClick={()=>setType("text")}>s</span>
+            ) : (
+              <span className='icon-span' onClick={()=>setType("password")}>s</span>
+            )}
           </div>
           <div className="inputBx">
             <input type="button" value="Sign in" onClick={checkLogin} />
