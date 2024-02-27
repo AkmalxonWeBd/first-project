@@ -8,8 +8,6 @@ import axios from "axios";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const [type , setType] = useState("password")
   const navigate = useNavigate();
 
