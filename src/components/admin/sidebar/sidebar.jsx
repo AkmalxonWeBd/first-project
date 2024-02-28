@@ -98,18 +98,10 @@ const Sidebar = () => {
             <span className="material-icons-sharp"><ReportGmailerrorredIcon /></span>
             <h3>Reports</h3>
           </NavLink >
-          <NavLink className={`span , span1 ${location.pathname === '/' && 'active'}`}>
-            <span className="material-icons-sharp"><SettingsIcon /></span>
-            <h3>Settings</h3>
-          </NavLink >
-          <NavLink className={`span , span1 ${location.pathname === '/' && 'active'}`}>
-            <span className="material-icons-sharp"><AddIcon /></span>
-            <h3>New Login</h3>
-          </NavLink >
-          <NavLink className={`span , span1 ${location.pathname === '/admin'}`}>
+          <Link to={'/admin'}>
             <span className="material-icons-sharp"><LogoutIcon /></span>
             <h3>Logout</h3>
-          </NavLink >
+          </Link >
         </div>
       </aside>
     </div>
