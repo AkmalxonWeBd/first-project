@@ -4,8 +4,6 @@ import DeleteCategorie from "./DeleteCategories";
 import UpdateCategories from "./UpdateCategories";
 import { useGetCategoryQuery } from "../../redux/slice/CategoriesCrud/crud";
 
-
-
 const Table = () => {
   const { data, error, isLoading } = useGetCategoryQuery();
   const [search, setSearch] = useState("");

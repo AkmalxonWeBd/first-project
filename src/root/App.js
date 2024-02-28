@@ -8,7 +8,7 @@ import TableCom from '../components/admin/subCategories/tableCom';
 import Order from '../components/admin/order/order';
 import ClientLayout from '../components/client/Layout';
 import Home from '../components/client/home/home.';
-import ProductShop from '../components/client/products/products';
+
 
 // import Home from "../components/client/home/Home";
 
@@ -22,7 +22,7 @@ function App() {
           <Route path="shop" element={<h1>Shop</h1>} />
           <Route path="contact" element={<h1>contact</h1>} />
           <Route path="signUp" element={<h1>Sign Up </h1>} />
-          <Route path='Products' element={<ProductShop/>} />
+ 
         </Route>
         {/* Admin Panel Routes */}
           <Route index element={<h1>Home Page</h1>} />
