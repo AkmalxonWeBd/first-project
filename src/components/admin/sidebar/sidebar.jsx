@@ -32,7 +32,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const pathName = useLocation();
+  // const pathName = useLocation();
   const location = useLocation();
 
   const menus = [
@@ -71,7 +71,7 @@ const Sidebar = () => {
         <div className="sidebar">
           <NavLink className={`span , span1 ${location.pathname === '/admin/home' && 'active'}`}>
             <span className="material-icons-sharp"><DashboardIcon /></span>
-            <h3>Dashboard</h3>
+            <h3>Boshqaruv paneli</h3>
           </NavLink >
           <NavLink className={`span , span1 ${location.pathname === '/admin' && 'active'}`}>
             <span className="material-icons-sharp"><PersonOutlineIcon /></span>
