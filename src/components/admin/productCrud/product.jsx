@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import AddCategories from './Addproduct.jsx';
 import DeleteCategorie from './delete.jsx';
 import UpdateProduct from './Update.jsx';
-import View from './view.jsx';
-import { useGetProductQuery } from '../../redux/slice/product/index.js';
 import AddImgUpload from './Imgupload.jsx';
+import { useGetProductQuery } from '../../redux/slice/product/index.js';
+import View from './view.jsx';
 
 const ProductTable = () => {
     const { data, error, isLoading } = useGetProductQuery();

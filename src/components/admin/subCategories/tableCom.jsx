@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 import { useGetCategoriesQuery } from "../../redux/slice/CategoriesCrud/crud";
 import AddSubCategories from "./AddCategiresCom";
 import SubUpdateCategories from "./UpdateCategoriesCom";
@@ -7,6 +8,13 @@ import DeleteCategories from "./DeleteCategoriesCom";
 const TableCom = () => {
   const { data, error, isLoading } = useGetCategoriesQuery();
   const [search, setSearch] = useState("");
+=======
+import AddCategoriesCom from "./AddCategiresCom";
+import { useGetSubCategoryQuery } from "../../redux/slice/client/subcategory";
+
+const TableCom = () => {
+  const { data: categories, error, isLoading } = useGetSubCategoryQuery();
+>>>>>>> 300194a520ebcdcfc714b07736d10392d47d5e99
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.error}</div>;
