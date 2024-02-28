@@ -15,20 +15,19 @@ import "./sidabar.css"
 // import IconButton from '@material-ui/core/IconButton';
 // import Icon from '@material-ui/core/Icon';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import InventoryIcon from '@mui/icons-material/Inventory';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import InsightsIcon from '@mui/icons-material/Insights';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import InventoryIcon from '@mui/icons-material/Inventory';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
-import SettingsIcon from '@mui/icons-material/Settings';
-import AddIcon from '@mui/icons-material/Add';
+// import SettingsIcon from '@mui/icons-material/Settings';
+// import AddIcon from '@mui/icons-material/Add';
 import LogoutIcon from '@mui/icons-material/Logout';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+// import LightModeIcon from '@mui/icons-material/LightMode';
+// import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import CloseIcon from '@mui/icons-material/Close';
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -64,7 +63,6 @@ const Sidebar = () => {
             </h2>
           </div>
           <div className="close" id="close-btn">
-            <span className="material-icons-sharp"><CloseIcon /></span>
           </div>
         </div>
 
@@ -74,8 +72,8 @@ const Sidebar = () => {
             <h3>Boshqaruv paneli</h3>
           </NavLink >
           <NavLink className={`span , span1 ${location.pathname === '/admin' && 'active'}`}>
-            <span className="material-icons-sharp"><PersonOutlineIcon /></span>
-            <h3>Users</h3>
+            <span className="material-icons-sharp"><InventoryIcon /></span>
+            <h3>Buyurtmalar</h3>
           </NavLink >
           <NavLink className={`span , span1 ${location.pathname === '/' && 'active'}`}>
             <span className="material-icons-sharp"><ReceiptLongIcon /></span>
