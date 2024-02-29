@@ -10,7 +10,8 @@ import Home from '../components/client/home/home.';
 import Banners from '../components/admin/banner/Banner';
 import ProductShop from '../components/client/products/products';
 import Dasjboard from '../components/admin/Dasjboard/Dashboard';
-import OrderCrud from '../components/admin/order/order';
+import OrderCrud from '../components/admin/Order/Order';
+import DiscountTbale from '../components/admin/discountCrud/Table';
 // import Home from "../components/client/home/Home";
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
           <Route path="/admin/subcategories" element={<TableCom />} />
           <Route path="/admin/banners" element={<Banners />} />
           <Route path="/admin/dashbord" element={<h1>dashbord</h1>} />
-          <Route path="/admin/discount" element={<h1>discount</h1>} />
+          <Route path="/admin/discount" element={<DiscountTbale/>} />
           <Route path="/admin/products" element={<ProductTable />} />
           <Route path="/admin/deliveries" element={<h1>deliveries</h1>} />
           <Route path="/admin/categories" element={<CategoriesCrud />} />

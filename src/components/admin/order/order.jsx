@@ -49,19 +49,6 @@ const OrderCrud = () => {
                     <th scope="col" className="p-4">
                       Xarid narxi
                     </th>
-                    {/* <th scope="col" className="p-4">
-                      To'lov turi
-                    </th>
-                    <th scope="col" className="p-4">
-                      Yetkazilganligi haqida
-                    </th> */}
-
-                    {/* <th scope="col" className="p-4">
-                      Yetkazilganligi haqida
-                    </th>
-                    <th scope="col" className="p-4">
-                      Buyurtma qilingan sana
-                    </th> */}
                     <th scope="col" className="p-4">
                     </th>
                   </tr>
@@ -112,37 +99,6 @@ const OrderCrud = () => {
                               {item?.total_price} So'm
                             </span>
                           </td>
-                          {/* <td className="px-4 py-3">
-                            <span
-                              className={`text-gray-800  text-base font-medium px-2 py-0.5 rounded`}
-                            >
-                              {item?.payment_method}
-                            </span>
-                          </td>
-                          <td className="px-4 py-3">
-                            <span
-                              className={`text-gray-800  text-base font-medium px-2 py-0.5 rounded`}
-                            >
-                              {item?.delivery_status}
-                            </span>
-                          </td> */}
-
-                          {/* <td className="px-4 py-3">
-                            <span
-                              className={`text-gray-800  text-base font-medium px-2 py-0.5 rounded`}
-                            >
-                              {item?.location.address}
-                            </span>
-                          </td>
-                          <td className="px-4 py-3">
-                            <span
-                              className={`text-gray-800  text-base font-medium px-2 py-0.5 rounded`}
-                            >
-                              {formattedDate}
-                            </span>
-                          </td> */}
-
-
                           <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             <div className="flex items-center space-x-4">
                             <div>
