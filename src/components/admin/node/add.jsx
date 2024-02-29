@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import Modal from '../../generic/modal';
 import { useCreateNoteMutation } from '../../redux/slice/node/node';
-import { useGetProductsQuery } from '../../redux/slice/product';
+import { useGetProductQuery } from '../../redux/slice/product';
 
 const AddNote = ({ object }) => {
     // state
@@ -11,7 +11,7 @@ const AddNote = ({ object }) => {
     console.log(inputValue);
     // redux
     const [createProduct, { isLoading: isCreating }] = useCreateNoteMutation();
-    const { data: pronote, isLoading, refetch } = useGetProductsQuery({ skip });
+    const { data: pronote, isLoading, refetch } = useGetProductQuery({ skip });
 
 
 

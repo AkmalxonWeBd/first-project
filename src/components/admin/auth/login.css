@@ -144,3 +144,7 @@ form h2{
     filter: drop-shadow(0 0 5px #01dbc2);
     cursor: pointer;
 }
+.icon-span{
+    position: absolute;
+    background-color: #000;
+}
