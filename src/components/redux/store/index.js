@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { ProductCrud } from '../slice/product';
-import { OrderCrud } from '../slice/order/order';
 import { categoriesApi } from '../slice/CategoriesCrud/crud'; 
 import { SubCategoryCrud } from '../slice/client/subcategory';
 import { GetBanner } from '../slice/banner';
+import { OrderCrud } from '../slice/order/order';
 export const store = configureStore({
   reducer: {
     [ProductCrud.reducerPath]: ProductCrud.reducer,
@@ -25,5 +25,3 @@ export const store = configureStore({
 });
 
 setupListeners(store.dispatch);
-
-

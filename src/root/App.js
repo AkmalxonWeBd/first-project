@@ -5,12 +5,13 @@ import Login from '../components/admin/auth/sigin';
 import CategoriesCrud from '../components/admin/CategoriesCrud/table';
 import ProductTable from '../components/admin/productCrud/product';
 import TableCom from '../components/admin/subCategories/tableCom';
-import Order from '../components/admin/order/order';
+import Order from '../components/admin/order/Order';
 import ClientLayout from '../components/client/Layout';
 import Home from '../components/client/home/home.';
 import Banners from '../components/admin/banner/Banner';
 import ProductShop from '../components/client/products/products';
-import Dasjboard from '../components/admin/Dasjboard/Dasjboard';
+import Dasjboard from '../components/admin/Dasjboard/Dashboard';
+import OrderCrud from '../components/admin/order/Order';
 // import Home from "../components/client/home/Home";
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
         <Route path="/admin" element={<Login />} />
         <Route element={<Layout />}>
           <Route path="/admin/home" element={<Dasjboard />} />
-          <Route path="/admin/order" element={<h1>order</h1>} />
+          <Route path="/admin/order" element={<OrderCrud/>} />
           <Route path="/admin/subcategories" element={<TableCom />} />
           <Route path="/admin/banners" element={<Banners />} />
           <Route path="/admin/dashbord" element={<h1>dashbord</h1>} />

@@ -8,6 +8,7 @@
     "@mui/icons-material": "^5.15.11",
     "@nivo/bar": "^0.84.0",
     "@nivo/pie": "^0.84.0",
+    "@pbe/react-yandex-maps": "^1.2.5",
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^2.1.0",
     "@testing-library/jest-dom": "^5.17.0",
