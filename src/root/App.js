@@ -5,13 +5,12 @@ import Login from '../components/admin/auth/sigin';
 import CategoriesCrud from '../components/admin/CategoriesCrud/table';
 import ProductTable from '../components/admin/productCrud/product';
 import TableCom from '../components/admin/subCategories/tableCom';
-import Order from '../components/admin/order/Order';
 import ClientLayout from '../components/client/Layout';
 import Home from '../components/client/home/home.';
 import Banners from '../components/admin/banner/Banner';
 import ProductShop from '../components/client/products/products';
 import Dasjboard from '../components/admin/Dasjboard/Dashboard';
-import OrderCrud from '../components/admin/order/Order';
+import OrderCrud from '../components/admin/order/order';
 // import Home from "../components/client/home/Home";
 
 function App() {
