@@ -10,7 +10,7 @@ import Home from '../components/client/home/home.';
 import Banners from '../components/admin/banner/Banner';
 import ProductShop from '../components/client/products/products';
 import Dasjboard from '../components/admin/Dasjboard/Dashboard';
-import OrderCrud from '../components/admin/Order/Order';
+import OrderCrud from '../components/admin/order/order';
 import DiscountTbale from '../components/admin/discountCrud/Table';
 // import Home from "../components/client/home/Home";
 
