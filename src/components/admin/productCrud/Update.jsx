@@ -5,9 +5,10 @@ import { useCreateProductMutation, useGetProductsQuery, useUpdateProductMutation
 import Modal from '../../generic/modal';
 import ImageUpload from '../../generic/imgUpload';
 import { useGetSubCategoryQuery } from '../../redux/slice/client/subcategory';
-import { useGetCategoriesQuery } from '../../redux/slice/CategoriesCrud/crud';
+
 import { useNavigate } from 'react-router-dom';
 import { CiEdit } from "react-icons/ci";
+import { useGetCategoryQuery } from '../../redux/slice/CategoriesCrud/crud';
 const UpdateProduct = ({object}) => {
   // state
   const [skip, setOpen] = useState(false);
@@ -16,7 +17,7 @@ const UpdateProduct = ({object}) => {
   // redux
   const [createProduct, { isLoading: isCreating }] = useUpdateProductMutation();
   const { data:subData } = useGetSubCategoryQuery()
-  const {data:catigories} =useGetCategoriesQuery()
+  const {data:catigories} =useGetCategoryQuery()
   // fuction
   const onClose = () => {
     setOpen(false);

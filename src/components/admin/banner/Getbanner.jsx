@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { BiEdit } from 'react-icons/bi';
 import { MdOutlineInsertPhoto } from 'react-icons/md';
-import { useGetBannersQuery, useUpdateBannersMutation } from '../../../redux/slice/client/banner';
+
 import ImageUpload from '../../ImageUpload/ImageUpload';
 import Modal from '../../generic/modal';
+import { useGetBannersQuery, useUpdateBannersMutation } from '../../redux/slice/banner';
 
-const UpdateProduct = ({ item }) => {
+const Getbanner = ({ item }) => {
   // state
   const [skip, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState(item.id);
   // redux
   const [updateProduct, { isLoading: isCreating }] = useUpdateBannersMutation();
-  const { data, isLoading, refetch } = useGetBannersQuery({ skip });
+  const { data, isLoading, refetch } =  useGetBannersQuery({ skip });
   const onClose = () => {
     setOpen(false);
   };
@@ -68,4 +69,4 @@ const UpdateProduct = ({ item }) => {
   );
 };
 
-export default UpdateProduct;
+export default Getbanner;

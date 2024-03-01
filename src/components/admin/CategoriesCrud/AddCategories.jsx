@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { useCreateCategoryMutation } from "../../redux/slice/CategoriesCrud/crud";
-
 import ImageUpload from "../../generic/imgUpload";
 import Modal from "../../generic/modal";
+import { useCreateCategoriaMutation } from "../../redux/slice/CategoriesCrud/crud";
 
 
 
@@ -11,7 +10,7 @@ const AddCategories = () => {
   const [open, setOpen] = useState(false);
 
 
-  const [createCategoria, { isLoading: isCreating }] = useCreateCategoryMutation();
+  const [createCategoria, { isLoading: isCreating }] = useCreateCategoriaMutation();
   const [inputValue, setInputValue] = useState({
     name: '',
     img: '',
@@ -42,14 +41,14 @@ const AddCategories = () => {
   return (
 //  
     <div>
-    <button
-      onClick={() => setOpen(true)}
-      type="button"
-      className=" bg-blue-600 inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-    >
-      +
-      Mahsulod turi
-    </button>
+      <button
+        onClick={() => setOpen(true)}
+        type="button"
+        className="bg-blue-500 inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        +
+        Maxsulot
+      </button>
     {open && (
       <Modal loader={isCreating} closeModal={() => setOpen(false)} addFunc={handleSubmit}>
         <div className="flex flex-col gap-3">

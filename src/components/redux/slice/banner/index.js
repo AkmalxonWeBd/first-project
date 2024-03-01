@@ -43,5 +43,5 @@ export const {
    useDeleteBannersMutation,
    useGetBannersQuery,
    useCreateBannersMutation,
-   useUpdateBannersMutation
+   useUpdateBannersMutation,
 } = GetBanner;

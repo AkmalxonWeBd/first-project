@@ -4,9 +4,10 @@ import { toast } from 'react-toastify';
 import Modal from '../../generic/modal';
 import ImageUpload from '../../generic/imgUpload';
 import { useGetSubCategoryQuery } from '../../redux/slice/client/subcategory';
-import { useGetCategoriesQuery } from '../../redux/slice/CategoriesCrud/crud';
+
 import { useNavigate } from 'react-router-dom';
 import { useCreateProductMutation, useGetProductQuery } from '../../redux/slice/product';
+import { useGetCategoryQuery } from '../../redux/slice/CategoriesCrud/crud';
 
 const AddProduct = ({object}) => {
   // state
@@ -17,7 +18,7 @@ const AddProduct = ({object}) => {
   const { data, isLoading, refetch } = useGetProductQuery();
   const [createProduct, { isLoading: isCreating }] = useCreateProductMutation();
   const { data:subData } = useGetSubCategoryQuery()
-  const {data:catigories} =useGetCategoriesQuery()
+  const {data:catigories} =useGetCategoryQuery()
   // fuction
   const onClose = () => {
     setOpen(false);

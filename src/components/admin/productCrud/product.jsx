@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
+import { useGetProductQuery, useGetProductsQuery } from '../../redux/slice/product'
 import AddCategories from './Addproduct.jsx';
 import DeleteCategorie from './delete.jsx';
 import UpdateProduct from './Update.jsx';
-import View from './view.jsx';
-import { useGetProductQuery } from '../../redux/slice/product/index.js';
-import AddImgUpload from './Imgupload.jsx';
 
 const ProductTable = () => {
     const { data, error, isLoading } = useGetProductQuery();
@@ -122,10 +120,8 @@ const ProductTable = () => {
                                                     </td>
                                                     <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                         <div className="flex items-center space-x-4">
-                                                            <View object={item} formattedDate={formattedDate} />
-                                                            <AddImgUpload ID={item.id} />
-                                                            <UpdateProduct object={item} />
-                                                            <DeleteCategorie ID={item.id} />
+                                                        <UpdateProduct object={item} />
+                                                        <DeleteCategorie ID={item.id} />
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -144,4 +140,4 @@ const ProductTable = () => {
     )
 }
 
-export default ProductTable
+export default ProductTable;
