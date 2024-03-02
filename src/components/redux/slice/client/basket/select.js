@@ -1,5 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { api } from "../../../../Api/api.js";
+import { api } from "../../../../../Api/api";
+
 
 export const GetSellct = createApi({
     reducerPath: "GetSelect",

@@ -2,9 +2,11 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { ProductCrud } from '../slice/product';
 import { OrderCrud } from '../slice/order/order';
-import { categoriesApi } from '../slice/CategoriesCrud/crud'; 
+import { categoriesApi } from '../slice/CategoriesCrud/crud';
 import { SubCategoryCrud } from '../slice/client/subcategory';
 import { BasketCrud } from '../slice/client/basket';
+import BasketCheckout from '../../client/basket/chekout';
+import { DeliveriesCrud } from '../slice/client/deliveries';
 export const store = configureStore({
   reducer: {
     [ProductCrud.reducerPath]: ProductCrud.reducer,
@@ -12,7 +14,7 @@ export const store = configureStore({
     [SubCategoryCrud.reducerPath]: SubCategoryCrud.reducer,
     [categoriesApi.reducerPath]: categoriesApi.reducer,
     [BasketCrud.reducerPath]: BasketCrud.reducer,
-    
+    [DeliveriesCrud.reducerPath]: DeliveriesCrud.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -20,7 +22,7 @@ export const store = configureStore({
       ProductCrud.middleware,
       OrderCrud.middleware,
       SubCategoryCrud.middleware,
-      BasketCrud.middleware
+      DeliveriesCrud.middleware,
     ),
 });
 
