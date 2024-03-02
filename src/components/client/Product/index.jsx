@@ -10,7 +10,7 @@ const Product = () => {
   const showMore = () => {
     setStartIndex((prevIndex) => prevIndex + productsToShow);
   };
-<h1><h1></h1></h1>
+  
   const showLess = () => {
     setStartIndex(0);
   };
