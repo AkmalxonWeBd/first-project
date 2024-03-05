@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useGetProductQuery } from "../../redux/slice/product";
+import { useCreateBasketMutation } from "../../redux/slice/client/basket";
+import { toast } from "react-toastify";
 
 const Skeleton = () => (
   <div className="animate-pulse w-48 h-48 bg-gray-300 rounded-lg"></div>
@@ -9,6 +11,7 @@ const Product = () => {
   const { data, isLoading } = useGetProductQuery();
   const [startIndex, setStartIndex] = useState(0);
   const [hoveredProductindex, setHoveredProductindex] = useState(null);
+ const [createBasket ] =   useCreateBasketMutation()
   const productsToShow = 4;
 
   const showMore = () => {
@@ -18,7 +21,20 @@ const Product = () => {
   const showLess = () => {
     setStartIndex(0);
   };
+ const productBy  =async  (id) => {
 
+  console.log(id,'id');
+  const formData = new FormData();
+  formData.append("amount", 1);
+  formData.append("product", id);
+  try {
+    await createBasket(formData).unwrap();
+    toast.success(`maxsulod  qushildi`);
+  } catch (error) {
+    toast.error(` Mahsulot Qushilmadi `);
+  }
+  // refetch();
+}
   return (
     <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4">
       {isLoading ? (
@@ -41,9 +57,7 @@ const Product = () => {
               />
               {hoveredProductindex === index && (
                 <button
-                  onClick={() =>
-                    console.log("Add to Basket clicked for", product.name)
-                  }
+                  onClick={() => productBy(product.id)}
                   className="absolute bottom-4 left-11 bg-blue-500 text-white px-2 py-1 rounded-lg shadow-lg"
 
                 >
