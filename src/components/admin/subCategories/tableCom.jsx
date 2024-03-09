@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useGetSubcatigoriesQuery } from "../../redux/slice/SubCategories/crud";
 import AddCategoriesCom from "./AddCategiresCom";
+import { useGetSubCategoryQuery } from "../../redux/slice/client/subcategory";
 
 const TableCom = () => {
-  const { data: categories, error, isLoading } = useGetSubcatigoriesQuery();
+  const { data: categories, error, isLoading } = useGetSubCategoryQuery();
 
   console.log(categories, 'categories');
   const [, setSearch] = useState("");

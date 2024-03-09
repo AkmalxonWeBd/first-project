@@ -1,47 +1,46 @@
-import React, { useState } from 'react';
-import { json, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './login.css';
-import axios from 'axios';
+import React, { useState } from "react";
+import { json, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./login.css";
+import axios from "axios";
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [type , setType] = useState("password")
   const navigate = useNavigate();
- 
 
   const checkLogin = async () => {
-    const resolveAfter3Sec = new Promise(resolve => setTimeout(resolve, 1000));
-    toast.promise(
-      resolveAfter3Sec,
-      {
-        pending: 'Kutib turing',
-      }
+    const resolveAfter3Sec = new Promise((resolve) =>
+      setTimeout(resolve, 1000)
     );
+    toast.promise(resolveAfter3Sec, {
+      pending: "Kutib turing",
+    });
     try {
       const formData = new FormData();
-      formData.append('username', username);
-      formData.append('password', password);
-      const response = await axios.post('users/token/', formData);
+      formData.append("username", username);
+      formData.append("password", password);
+      const response = await axios.post("users/token/", formData);
       if (response.status === 200) {
-        toast.success('Siz kirdingiz');
+        toast.success("Siz kirdingiz");
         setTimeout(() => {
-          localStorage.setItem('user', response.data.access);
-          navigate('/admin/home');
+          localStorage.setItem("user", response.data.access);
+          navigate("/admin/home");
         }, 2000);
       } else {
         // Handle non-OK response without throwing an error unnecessarily
-        toast.error('Siz kira olmadingiz');
+        toast.error("Siz kira olmadingiz");
       }
     } catch (error) {
-      console.error('Error during login:', error);
-      toast.error(error.message || 'An error occurred during login');
+      console.error("Error during login:", error);
+      toast.error(error.message || "An error occurred during login");
     }
   };
 
   return (
-    <div className='body'>
+    <div className="body">
       <div className="box">
         <form>
           <h2>Login</h2>
@@ -57,11 +56,16 @@ function Login() {
           <div className="inputBx">
             <span></span>
             <input
-              type="password"
+              type={type}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {type==="password"?(
+              <span className='icon-span' onClick={()=>setType("text")}>s</span>
+            ) : (
+              <span className='icon-span' onClick={()=>setType("password")}>s</span>
+            )}
           </div>
           <div className="inputBx">
             <input type="button" value="Sign in" onClick={checkLogin} />

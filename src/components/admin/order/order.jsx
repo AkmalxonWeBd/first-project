@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { useGetOrderQuery } from "../../redux/slice/order/order";
+import DeleteOrder from "./OrderDelete.jsx";
+import OrderLocation from "./OrderLocation.jsx";
+import OrderUpdate from "./OrderUpdate.jsx";
+import OrderWiew from "./OrderWiew.jsx";
+import { useGetOrderQuery } from "../../redux/slice/order/order.js";
 
 const OrderCrud = () => {
   const { data, error, isLoading } = useGetOrderQuery();
-
   const [search, setSearch] = useState("");
   const [isHovered, setIsHovered] = useState(false);
   const filteredData = data
@@ -53,7 +56,7 @@ const OrderCrud = () => {
                 <tbody>
                   {isLoading ? (
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <h1>Loader</h1>
+                      <h1>loading</h1>
                     </div>
                   ) : filteredData?.length > 0 ? (
                     filteredData?.map((item) => {
@@ -96,21 +99,20 @@ const OrderCrud = () => {
                               {item?.total_price} So'm
                             </span>
                           </td>
-
                           <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             <div className="flex items-center space-x-4">
                             <div>
-                                <h1>wiev</h1>
+                                <OrderWiew items={item} />
                               </div>
                               <div>
-                                <h1>Location</h1>
+                                <OrderLocation location={item.location} />
                               </div>
                               <div>
-                                <h1>Update</h1>
+                                <OrderUpdate object={item} />
                               </div>
 
                               <div>
-                                <h1>Delete</h1>
+                                <DeleteOrder ID={item?.id} />
                               </div>
                             </div>
                           </td>
@@ -118,7 +120,7 @@ const OrderCrud = () => {
                       );
                     })
                   ) : (
-                    <h1>EmptyBox</h1>
+                    <h1>Hech qanday malumot yuq :(</h1>
                   )}
                 </tbody>
               </table>
@@ -131,4 +133,4 @@ const OrderCrud = () => {
   );
 };
 
-export default OrderCrud
+export default OrderCrud;

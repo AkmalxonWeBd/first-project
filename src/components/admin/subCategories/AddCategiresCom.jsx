@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { useCreateSubCatigoriesMutation } from "../../redux/slice/SubCategories/crud";
 
 import ImageUpload from "../../generic/imgUpload";
 import Modal from "../../generic/modal";
-
+import { useCreateSubCategoriaMutation } from "../../redux/slice/client/subcategory";
 
 const AddCategoriesCom = () => {
   const [open, setOpen] = useState(false);
 
 
-  const [createCategoria, { isLoading: isCreating }] = useCreateSubCatigoriesMutation();
+  const [createCategoria, { isLoading: isCreating }] = useCreateSubCategoriaMutation();
 
   const [inputValue, setInputValue] = useState({
     name: '',

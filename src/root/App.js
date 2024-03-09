@@ -5,9 +5,14 @@ import Login from '../components/admin/auth/sigin';
 import CategoriesCrud from '../components/admin/CategoriesCrud/table';
 import ProductTable from '../components/admin/productCrud/product';
 import TableCom from '../components/admin/subCategories/tableCom';
-import Order from '../components/admin/order/order';
 import ClientLayout from '../components/client/Layout';
 import Home from '../components/client/home/home.';
+import Banners from '../components/admin/banner/Banner';
+import ProductShop from '../components/client/products/products';
+import Dasjboard from '../components/admin/Dasjboard/Dashboard';
+import OrderCrud from '../components/admin/order/order';
+import DiscountTbale from '../components/admin/discountCrud/Table';
+import NoteTable from '../components/admin/node/node';
 // import Home from "../components/client/home/Home";
 
 function App() {
@@ -20,26 +25,27 @@ function App() {
           <Route path="shop" element={<h1>Shop</h1>} />
           <Route path="contact" element={<h1>contact</h1>} />
           <Route path="signUp" element={<h1>Sign Up </h1>} />
+          <Route path='Products' element={<ProductShop />} />
         </Route>
-
         {/* Admin Panel Routes */}
-        <Route path="/admin" element={<Login />}>
-          <Route path="home" element={<Layout />}>
-            <Route index element={<h1>Admin</h1>} />
-            <Route path="order" element={<Order />} />
-            <Route path="subcategories" element={<TableCom />} />
-            <Route path="banners" element={<h1>Banners</h1>} />
-            <Route path="dashbord" element={<h1>Dashbord</h1>} />
-            <Route path="discount" element={<h1>Discount</h1>} />
-            <Route path="products" element={<ProductTable />} />
-            <Route path="deliveries" element={<h1>Deliveries</h1>} />
-            <Route path="categories" element={<CategoriesCrud />} />
-            <Route path="note" element={<h1>Note</h1>} />
-          </Route>
+        <Route index element={<h1>Home Page</h1>} />
+        <Route path="/admin" element={<Login />} />
+        <Route element={<Layout />}>
+          <Route path="/admin/home" element={<Dasjboard />} />
+          <Route path="/admin/order" element={<OrderCrud/>} />
+          <Route path="/admin/subcategories" element={<TableCom />} />
+          <Route path="/admin/banners" element={<Banners />} />
+          <Route path="/admin/dashbord" element={<h1>dashbord</h1>} />
+          <Route path="/admin/discount" element={<DiscountTbale/>} />
+          <Route path="/admin/products" element={<ProductTable />} />
+          <Route path="/admin/deliveries" element={<h1>deliveries</h1>} />
+          <Route path="/admin/categories" element={<CategoriesCrud />} />
+          <Route path="/admin/note" element={<NoteTable/>} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
+
 
 export default App;
