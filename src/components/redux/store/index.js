@@ -1,24 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { ProductCrud } from '../slice/product';
-import { categoriesApi } from '../slice/CategoriesCrud/crud'; 
-import { SubCategoryCrud } from '../slice/client/subcategory';
-import { GetBanner } from '../slice/banner';
 import { OrderCrud } from '../slice/order/order';
-import { DiscountCrud } from '../slice/discount';
-import { NoteCrud } from '../slice/node/node';
+import { categoriesApi } from '../slice/CategoriesCrud/crud';
+import { SubCategoryCrud } from '../slice/client/subcategory';
+import { BasketCrud } from '../slice/client/basket';
+import BasketCheckout from '../../client/basket/chekout';
+import { DeliveriesCrud } from '../slice/client/deliveries';
 export const store = configureStore({
   reducer: {
     [ProductCrud.reducerPath]: ProductCrud.reducer,
     [OrderCrud.reducerPath]: OrderCrud.reducer,
     [SubCategoryCrud.reducerPath]: SubCategoryCrud.reducer,
     [categoriesApi.reducerPath]: categoriesApi.reducer,
-    [GetBanner.reducerPath]: GetBanner.reducer,
-    [DiscountCrud.reducerPath]: DiscountCrud.reducer,
-    [NoteCrud.reducerPath]: NoteCrud.reducer,
-    
-    
-  
+    [BasketCrud.reducerPath]: BasketCrud.reducer,
+    [DeliveriesCrud.reducerPath]: DeliveriesCrud.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -26,9 +22,7 @@ export const store = configureStore({
       ProductCrud.middleware,
       OrderCrud.middleware,
       SubCategoryCrud.middleware,
-      GetBanner.middleware,
-      DiscountCrud.middleware,
-      NoteCrud.middleware,
+      DeliveriesCrud.middleware,
     ),
 });
 
