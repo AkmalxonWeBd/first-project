@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-<h1>hello world</h1>
+  
 const Navbar = () => {
   return (
     <div className="navbar">
