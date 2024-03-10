@@ -8,13 +8,10 @@ import TableCom from '../components/admin/subCategories/tableCom';
 import ClientLayout from '../components/client/Layout';
 import Home from '../components/client/home/home.';
 import Dasjboard from '../components/admin/Dasjboard/Dashboard';
-import { OrderCrud } from '../components/redux/slice/order/order';
 import Banners from '../components/admin/banner/Banner';
 import DiscountTbale from '../components/admin/discountCrud/Table';
 import NoteTable from '../components/admin/node/node';
-
-
-// import Home from "../components/client/home/Home";
+import OrderCrud from '../components/admin/order/order';
 
 function App() {
   return (

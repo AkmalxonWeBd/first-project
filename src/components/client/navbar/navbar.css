@@ -1,10 +1,10 @@
-.active {
+.activeClient {
     font-size: 15px;
     font-weight: 900;
     transition: all 1s;
 }
-
-.active::after {
+ 
+.activeClient::after {
     display: block;
     content: "";
     width: 100%;
