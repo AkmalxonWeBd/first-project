@@ -10,3 +10,12 @@
     display: flex;
     justify-content: space-around;
 }
+.main-container{
+    display: grid;
+    grid-template-columns: repeat(4,300px);
+    gap: 20px;
+}
+
+.main-container>div{
+    border: 1px solid  yellow;
+}

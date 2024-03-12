@@ -7,13 +7,11 @@ import ProductTable from '../components/admin/productCrud/product';
 import TableCom from '../components/admin/subCategories/tableCom';
 import ClientLayout from '../components/client/Layout';
 import Home from '../components/client/home/home.';
-import Banners from '../components/admin/banner/Banner';
-import ProductShop from '../components/client/products/products';
 import Dasjboard from '../components/admin/Dasjboard/Dashboard';
-import OrderCrud from '../components/admin/order/order';
+import Banners from '../components/admin/banner/Banner';
 import DiscountTbale from '../components/admin/discountCrud/Table';
 import NoteTable from '../components/admin/node/node';
-// import Home from "../components/client/home/Home";
+import OrderCrud from '../components/admin/order/order';
 
 function App() {
   return (
@@ -25,7 +23,7 @@ function App() {
           <Route path="shop" element={<h1>Shop</h1>} />
           <Route path="contact" element={<h1>contact</h1>} />
           <Route path="signUp" element={<h1>Sign Up </h1>} />
-          <Route path='Products' element={<ProductShop />} />
+ 
         </Route>
         {/* Admin Panel Routes */}
         <Route index element={<h1>Home Page</h1>} />

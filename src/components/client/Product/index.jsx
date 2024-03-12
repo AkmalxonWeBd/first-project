@@ -29,7 +29,7 @@ const Product = () => {
   formData.append("product", id);
   try {
     await createBasket(formData).unwrap();
-    toast.success(`Maxsulod  qushildi`);
+    toast.success(`maxsulod  qushildi`);
   } catch (error) {
     toast.error(` Mahsulot Qushilmadi `);
   }

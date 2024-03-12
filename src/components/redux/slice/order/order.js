@@ -1,5 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { api } from "../../../../Api/api";
+import { api } from "../../../../Api/api.js";
 
 export const OrderCrud = createApi({
   reducerPath: "getOrdertData",
