@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useGetProductQuery } from "../../redux/slice/product";
 import { useCreateBasketMutation } from "../../redux/slice/client/basket";
 import { toast } from "react-toastify";
+import { FaRegHeart } from "react-icons/fa";
+import { LiaEyeSolid } from "react-icons/lia";
+import RateStar from "../rate/rate";
+
 
 const Skeleton = () => (
   <div className="animate-pulse w-48 h-48 bg-gray-300 rounded-lg"></div>
@@ -64,24 +68,29 @@ const Product = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-10 sm:grid-cols-2 md:grid-cols-4">
+    <div className="grid grid-cols-2 gap-12 sm:grid-cols-2 md:grid-cols-4">
       {isLoading
-        ? Array.from({ length: productsToShow * 2 }).map((_, index) => (
+        ? Array.from({ length: productsToShow * 2 }).map((__, index) => (
             <Skeleton key={index} />
           ))
         : data?.slice(0, startIndex + 8).map((product, index) => (
             <div
               key={index}
-              className="relative"
+              className=""
               onMouseEnter={() => setHoveredProductindex(index)}
               onMouseLeave={() => setHoveredProductindex(null)}
             >
-              <div className="w-48 h-full rounded-lg shadow-lg overflow-hidden relative">
+              <div className="w-[275px] h-[194px] shadow-lg overflow-hidden relative flex items-center justify-center rounded-b-lg">
                 <img
-                  className="w-full h-full rounded-md"
+                  className="w-[140px] h-[190px] object-cover"
                   src={product.image}
                   alt=""
                 />
+                <div className="flex flex-col items-start absolute right-10 top-2">
+                  <FaRegHeart /> 
+                  <LiaEyeSolid />
+                </div>
+               
                 {(hoveredProductindex === index ||
                   productQuantities[product.id]) && (
                   <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center">
@@ -111,7 +120,7 @@ const Product = () => {
                     ) : (
                       <button
                         onClick={() => productBy(product.id)}
-                        className="bg-black text-white px-9 py-1 shadow-lg"
+                        className="bg-black text-white px-20 py-1 shadow-lg rounded-b-lg"
                       >
                         Add to Basket
                       </button>
@@ -120,12 +129,15 @@ const Product = () => {
                 )}
               </div>
               <div className="mt-2 text-center">
-                <p className="text-lg font-bold">{product.name}</p>
-                <p className="text-gray-600">{product.price}</p>
+                <p className=" truncate text-lg text-left font-bold">{product.title}</p>
+                <div className="flex gap-10" >
+                <p className="text-red-600 text-left">{product.price}</p>
+                <RateStar/>
+                </div>
               </div>
             </div>
           ))}
-      {startIndex + productsToShow >= data?.length && (
+      {startIndex + 8 >= data?.length && (
         <div className="col-span-4 flex justify-center">
           <button
             onClick={showLess}
@@ -135,10 +147,10 @@ const Product = () => {
           </button>
         </div>
       )}
-      {startIndex + productsToShow < data?.length && (
+      {startIndex + 8 < data?.length && (
         <div
-          className={`col-span-4 md:grid-cols-4 sm:col-span-2 flex ${
-            startIndex === 0 ? " justify-end" : "justify-end"
+          className={`col-span-8 md:grid-cols-8 sm:col-span-2 flex ${
+            startIndex === 0 ? " justify-end" : "justify-end" 
           } items-center`}
         >
           <button
@@ -154,4 +166,3 @@ const Product = () => {
 };
 
 export default Product;
-

@@ -5,6 +5,7 @@ import UpdateProduct from './Update.jsx';
 import AddImgUpload from './Imgupload.jsx';
 import { useGetProductQuery } from '../../redux/slice/product/index.js';
 import View from './view.jsx';
+import Loading from './loading.jsx';
 
 const ProductTable = () => {
     const { data, error, isLoading } = useGetProductQuery();
@@ -20,6 +21,7 @@ const ProductTable = () => {
             name1: "Bunday product yo'q"
         }
     ]
+    // console.log(data, "data");
     return (
         <div className=" ">
             <section className="bg-gray-50  dark:bg-white-900 p-3 sm:p-4 antialiased">
@@ -60,8 +62,8 @@ const ProductTable = () => {
                                 </thead>
                                 <tbody>
                                     {isLoading ? (
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <h1>Loading...</h1>
+                                        <div className=" w-full">
+                                            <Loading/>
                                         </div>
                                     ) : filteredData?.length > 0 ? (
                                         filteredData.reverse()?.map((item) => {
@@ -70,7 +72,6 @@ const ProductTable = () => {
                                             const options = { hour12: false };
                                             const formattedDate = dateObject.toLocaleString(
                                                 "en-US",
-
                                                 options
                                             );
 
@@ -91,7 +92,7 @@ const ProductTable = () => {
                                                                         alt="item"
                                                                         className="h-12 w-12 flex-none  rounded-full border object-cover"
                                                                     />
-                                                                    <span className="text-gray-200 hover:text-gray-800 text-base font-medium px-2 py-0.5 rounded ">
+                                                                    <span className="text-gray-200 hover:text-gray-800 text-base font-medium px-2 py-0.5 rounded w-[200px]">
                                                                         {item?.title}
                                                                     </span>
                                                                 </div>

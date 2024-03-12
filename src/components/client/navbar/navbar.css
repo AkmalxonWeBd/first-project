@@ -1,0 +1,17 @@
+.active {
+    font-size: 15px;
+    font-weight: 900;
+    transition: all 1s;
+}
+
+.active::after {
+    display: block;
+    content: "";
+    width: 100%;
+    /* transform: scaleX(0); */
+    height: 4px;
+    border-radius: 8px;
+    background-color: #F36326;
+    transition: all 0.4s;
+    transform-origin: left;
+}
