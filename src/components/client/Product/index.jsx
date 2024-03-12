@@ -36,7 +36,7 @@ const Product = () => {
   // refetch();
 }
   return (
-    <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4">
+    <div className=" m-auto w-[86%] grid grid-cols-[auto, auto] gap-10 sm:grid-cols-2 md:grid-cols-4">
       {isLoading ? (
         Array.from({ length: productsToShow }).map((_, index) => (
           <Skeleton key={index} />
@@ -45,11 +45,11 @@ const Product = () => {
         data?.slice(0, startIndex + productsToShow).map((product, index) => (
           <div
             key={index}
-            className="relative"
+            className=" w-[200px] shadow-2xl relative"
             onMouseEnter={() => setHoveredProductindex(index)}
             onMouseLeave={() => setHoveredProductindex(null)}
           >
-            <div className="w-48 h-full rounded-lg shadow-lg overflow-hidden relative">
+            <div className=" w-[200px] h-full rounded-lg shadow-lg overflow-hidden relative">
               <img
                 className="w-full h-full object-cover"
                 src={product.image}
@@ -65,7 +65,7 @@ const Product = () => {
                 </button>
               )}
             </div>
-            <div className="mt-2 text-center">
+            <div className=" mt-2 text-center">
               <p className="text-lg font-bold">{product.name}</p>
               <p className="text-gray-600">{product.price}</p>
             </div>
