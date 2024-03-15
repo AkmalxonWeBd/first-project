@@ -9,7 +9,7 @@ const CountdownTimer = () => {
     const [minutes, setMinutes] = useState("00");
     const [seconds, setSeconds] = useState("00");
 
-    const endDate = new Date("03/20/2024 00:00:00").getTime();
+    const endDate = new Date("04/02/2024 00:00:00").getTime();
 
     useEffect(() => {
         const interval = setInterval(() => {
