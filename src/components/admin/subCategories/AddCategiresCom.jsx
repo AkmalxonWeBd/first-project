@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 import ImageUpload from "../../generic/imgUpload";
-import Modal from "../../generic/modal";
+import Modal from "../../generic/Modal.jsx";
 import { useCreateSubCategoriaMutation } from "../../redux/slice/client/subcategory";
 
 const AddCategoriesCom = () => {

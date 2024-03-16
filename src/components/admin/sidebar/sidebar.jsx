@@ -42,6 +42,7 @@ const Sidebar = () => {
           <Link to={'/admin'}> <span className="material-icons-sharp"><LogoutIcon /></span> <h3>Logout</h3></Link >
         </div>
       </aside>
+      
   );
 };
 export default Sidebar;

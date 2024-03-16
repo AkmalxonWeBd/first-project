@@ -32,6 +32,7 @@ function App() {
         <Route index element={<h1>Home Page</h1>} />
         <Route path="/admin" element={<Login />} />
         <Route element={<Layout />}>
+          
           <Route path="/admin/home" element={<Dasjboard />} />
           <Route path="/admin/order" element={<OrderCrud/>} />
           <Route path="/admin/subcategories" element={<TableCom />} />
@@ -42,6 +43,7 @@ function App() {
           <Route path="/admin/deliveries" element={<h1>deliveries</h1>} />
           <Route path="/admin/categories" element={<CategoriesCrud />} />
           <Route path="/admin/note" element={<NoteTable/>} />
+          
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { Map, Placemark, YMaps } from "@pbe/react-yandex-maps";
-import Modal from "../../generic/modal";
+import Modal from "../../generic/Modal.jsx";
 import { useOrderCreateMutation } from "../../redux/slice/order/order";
 import { useGetDeliveriesQuery } from "../../redux/slice/client/deliveries";
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import Modal from '../../generic/modal';
+import Modal from '../../generic/Modal.jsx';
 import { useCreateNoteMutation } from '../../redux/slice/node/node';
 import { useGetProductQuery } from '../../redux/slice/product';
 
