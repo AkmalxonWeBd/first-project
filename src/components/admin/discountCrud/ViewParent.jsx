@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
-import Modal from "../../generic/modal";
+import Modal from "../../generic/Modal.jsx";
 
 export default function View({ object }) {
   const [open, setOpen] = useState(false);

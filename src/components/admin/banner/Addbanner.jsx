@@ -8,7 +8,7 @@ import ImageUpload from '../../ImageUpload/ImageUpload';
 
 import { useCreateBannersMutation } from '../../redux/slice/banner';
 import { useGetSubCategoryQuery } from '../../redux/slice/client/subcategory';
-import Modal from '../../generic/modal';
+import Modal from '../../generic/Modal';
 
 
 const AddBanners = ({ object }) => {
