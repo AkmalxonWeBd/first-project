@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import Modal from "../../generic/modal";
+import Modal from "../../generic/Modal";
 import { useUpdateCategorieMutation } from "../../redux/slice/CategoriesCrud/crud";
 import ImageUpload from "../../generic/imgUpload";
 import { MdOutlineInsertPhoto } from "react-icons/md";

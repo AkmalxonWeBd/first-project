@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BsTrash } from "react-icons/bs";
 import { toast } from "react-toastify";
 import { useDeleteOrderMutation } from "../../redux/slice/order/order";
-import Modal from "../../generic/modal";
+import Modal from "../../generic/Modal";
 
 export default function DeleteOrder({ ID, }) {
     const [isOpen, setIsOpen] = useState(false);

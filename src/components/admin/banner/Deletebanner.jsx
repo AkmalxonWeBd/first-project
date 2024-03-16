@@ -3,7 +3,7 @@ import { BsTrash } from "react-icons/bs";
 
 import { toast } from "react-toastify";
 import { useDeleteBannersMutation } from "../../redux/slice/banner";
-import Modal from "../../generic/modal";
+import Modal from "../../generic/Modal";
 
 
 

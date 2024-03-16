@@ -4,7 +4,7 @@ import { useCreateDiscountMutation } from '../../redux/slice/discount';
 import { useGetCategoryQuery } from '../../redux/slice/CategoriesCrud/crud';
 import { useGetProductQuery } from '../../redux/slice/product';
 import { useGetSubCategoryQuery } from '../../redux/slice/client/subcategory';
-import Modal from '../../generic/modal';
+import Modal from '../../generic/Modal';
 
 const AddProduct = ({ object }) => {
   const [skip, setOpen] = useState(false);

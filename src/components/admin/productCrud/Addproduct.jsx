@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MdOutlineInsertPhoto } from 'react-icons/md';
 import { toast } from 'react-toastify';
-import Modal from '../../generic/modal';
+import Modal from '../../generic/Modal';
 import ImageUpload from '../../generic/imgUpload';
 import { useNavigate } from 'react-router-dom';
 import { useCreateProductMutation, useGetProductQuery } from '../../redux/slice/product';
