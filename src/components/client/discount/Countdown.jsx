@@ -1,53 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import "./discount.css"
+import { useGetDiscountQuery } from '../../redux/slice/discount';
+import Countdown from 'react-countdown';
 
 const CountdownTimer = () => {
+    const { data } = useGetDiscountQuery();
+
     const formatTime = (time) => (time < 10 ? `0${time}` : time);
 
-    const [days, setDays] = useState("00");
-    const [hours, setHours] = useState("00");
-    const [minutes, setMinutes] = useState("00");
-    const [seconds, setSeconds] = useState("00");
-
-    const endDate = new Date("04/02/2024 00:00:00").getTime();
+    const [countdownTime, setCountdownTime] = useState(() => {
+        const storedCountdownTime = localStorage.getItem('countdownEndTime');
+        return storedCountdownTime ? parseInt(storedCountdownTime) : Date.now();
+    });
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = endDate - now;
+        if (data && data.length > 0) {
+            const item = data[0]; // Assuming only one item in the data array
+            const backend_seconds = item.time_left;
 
-            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            setDays(formatTime(d));
-            setHours(formatTime(h));
-            setMinutes(formatTime(m));
-            setSeconds(formatTime(s));
+            let diffTime = backend_seconds * 1000;
+            const endTime = Date.now() + diffTime;
 
-            if (distance < 0) {
-                clearInterval(interval);
-            }
-        }, 1000);
+            localStorage.setItem('countdownEndTime', endTime);
 
-        return () => clearInterval(interval);
-    }, []);
-
+            setCountdownTime(endTime);
+        }
+    }, [data]);
+  
     return (
         <div id="saleTime">
-            <div className="circle">
-                <div id="days"><span>Days</span><br /><h1 className='timeFontSize'>{days}</h1></div>
-            </div>
-            <div className="circle">
-                <div id="hours"><span>Hours</span><br /><h1 className='timeFontSize'>{hours}</h1></div>
-            </div>
-            <div className="circle">
-                <div id="minutes"><span>Minutes</span><br /><h1 className='timeFontSize'>{minutes}</h1></div>
-            </div>
-            <div className="circle">
-                <div id="seconds"><span>Seconds</span><br /><h1 className='timeFontSize'>{seconds}</h1></div>
-            </div>
+            <Countdown date={countdownTime} renderer={({ days, hours, minutes, seconds }) => (
+                <div className="countdown-wrapper">
+                    <div className="countdown-item">
+                        <p>Days</p>
+                        <span>{days}</span>
+                    </div>
+                    <h1 className='sa'>:</h1>
+                    <div className="countdown-item">
+                        <p>Hours</p>
+                        <span>{formatTime(hours)}</span>
+                    </div>
+                    <h1 className='sa'>:</h1>
+                    <div className="countdown-item">
+                        <p>Minutes</p>
+                        <span>{formatTime(minutes)}</span>
+                    </div>
+                    <h1 className='sa'>:</h1>
+                    <div className="countdown-item">
+                        <p>Seconds</p>
+                        <span>{formatTime(seconds)}</span>
+                    </div>
+                </div>
+            )} />
         </div>
     );
 };
