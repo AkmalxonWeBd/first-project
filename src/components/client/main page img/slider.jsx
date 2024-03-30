@@ -14,7 +14,7 @@ function Slider() {
   console.log(data);
 
   return (
-    <Carousel autoplay className="w-[880px] h-[345px]">
+    <Carousel autoplay className="w-[890px] h-[345px]">
       {data &&
         data.map((item) => (
           <div key={item.id}>

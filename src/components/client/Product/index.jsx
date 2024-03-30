@@ -5,8 +5,6 @@ import { toast } from "react-toastify";
 import { FaRegHeart } from "react-icons/fa";
 import { LiaEyeSolid } from "react-icons/lia";
 import RateStar from "../rate/rate";
-
-
 const Skeleton = () => (
   <div className="animate-pulse w-48 h-48 bg-gray-300 rounded-lg"></div>
 );
