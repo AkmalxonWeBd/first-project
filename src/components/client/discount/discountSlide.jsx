@@ -1,4 +1,3 @@
-import "./discount.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Product from "./discountProduct";
@@ -6,6 +5,7 @@ import { useGetProductQuery } from "../../redux/slice/product";
 import RateStar from "../rate/rate";
 import { FaRegHeart } from "react-icons/fa";
 import { LiaEyeSolid } from "react-icons/lia";
+import "./discount.css"
 
 const Skeleton = () => (
   <div className="animate-pulse w-48 h-48 bg-gray-300 rounded-lg mr-20"></div>
