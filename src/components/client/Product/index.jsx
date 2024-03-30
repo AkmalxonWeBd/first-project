@@ -76,7 +76,7 @@ const Product = () => {
         : data?.slice(0, startIndex + 8).map((product, index) => (
             <div
               key={index}
-              className="" 
+              className=""
               onMouseEnter={() => setHoveredProductindex(index)}
               onMouseLeave={() => setHoveredProductindex(null)}
             >
