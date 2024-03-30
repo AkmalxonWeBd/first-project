@@ -53,10 +53,10 @@ const Footer = () => {
           </span>
           {/*  */}
           <span className='flex text-3xl gap-5'>
-          <FaFacebookF />
-          <FiTwitter />
-          <FaInstagram />
-          <FaLinkedinIn />
+            <a href="https://www.facebook.com/"><FaFacebookF /></a>
+            <a href="https://twitter.com/"><FiTwitter /></a>
+            <a href="https://www.instagram.com/"><FaInstagram /></a>
+            <a href="https://www.linkedin.com/"><FaLinkedinIn /></a>
           </span>
          </div>
     </div>
