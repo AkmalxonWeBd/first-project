@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BiEdit } from 'react-icons/bi';
 import { toast } from 'react-toastify';
-import Modal from '../../generic/modal';
+import Modal from '../../generic/Modal';
 import { useGetSubCategoryQuery } from '../../redux/slice/client/subcategory';
 import { useGetNoteQuery, useUpdateNoteMutation } from '../../redux/slice/node/node';
 

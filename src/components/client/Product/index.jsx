@@ -5,6 +5,10 @@ import { toast } from "react-toastify";
 import { FaRegHeart } from "react-icons/fa";
 import { LiaEyeSolid } from "react-icons/lia";
 import RateStar from "../rate/rate";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32560a24efb3c713e827f7a9965abfbeee32ffe6
 const Skeleton = () => (
   <div className="animate-pulse w-48 h-48 bg-gray-300 rounded-lg"></div>
 );
@@ -66,6 +70,10 @@ const Product = () => {
   };
 
   return (
+<<<<<<< HEAD
+=======
+    <div className="pl-20 max-w-[1440px] ">
+>>>>>>> 32560a24efb3c713e827f7a9965abfbeee32ffe6
     <div className="grid grid-cols-2 gap-12 sm:grid-cols-2 md:grid-cols-4">
       {isLoading
         ? Array.from({ length: productsToShow * 2 }).map((__, index) => (
@@ -85,10 +93,17 @@ const Product = () => {
                   alt=""
                 />
                 <div className="flex flex-col items-start absolute right-10 top-2">
+<<<<<<< HEAD
                   <FaRegHeart /> 
                   <LiaEyeSolid />
                 </div>
                
+=======
+                  <FaRegHeart />
+                  <LiaEyeSolid />
+                </div>
+
+>>>>>>> 32560a24efb3c713e827f7a9965abfbeee32ffe6
                 {(hoveredProductindex === index ||
                   productQuantities[product.id]) && (
                   <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center">
@@ -127,10 +142,19 @@ const Product = () => {
                 )}
               </div>
               <div className="mt-2 text-center">
+<<<<<<< HEAD
                 <p className=" truncate text-lg text-left font-bold">{product.title}</p>
                 <div className="flex gap-10" >
                 <p className="text-red-600 text-left">{product.price}</p>
                 <RateStar/>
+=======
+                <p className=" truncate text-lg text-left font-bold">
+                  {product.title}
+                </p>
+                <div className="flex gap-10">
+                  <p className="text-red-600 text-left">{product.price}</p>
+                  <RateStar />
+>>>>>>> 32560a24efb3c713e827f7a9965abfbeee32ffe6
                 </div>
               </div>
             </div>
@@ -148,7 +172,11 @@ const Product = () => {
       {startIndex + 8 < data?.length && (
         <div
           className={`col-span-8 md:grid-cols-8 sm:col-span-2 flex ${
+<<<<<<< HEAD
             startIndex === 0 ? " justify-end" : "justify-end" 
+=======
+            startIndex === 0 ? " justify-end" : "justify-end"
+>>>>>>> 32560a24efb3c713e827f7a9965abfbeee32ffe6
           } items-center`}
         >
           <button
@@ -159,6 +187,7 @@ const Product = () => {
           </button>
         </div>
       )}
+    </div>
     </div>
   );
 };

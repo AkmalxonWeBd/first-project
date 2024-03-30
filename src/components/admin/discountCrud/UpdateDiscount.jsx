@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { BiEdit } from 'react-icons/bi';
-import Modal from '../../generic/modal';
+import Modal from '../../generic/Modal';
 import { useUpdateDiscountMutation } from '../../redux/slice/discount';
 import { useGetSubCategoryQuery } from '../../redux/slice/client/subcategory';
 import { useGetProductQuery } from '../../redux/slice/product';

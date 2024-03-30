@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BsTrash } from "react-icons/bs";
 import { toast } from "react-toastify";
-import Modal from "../../generic/modal.jsx";
+import Modal from "../../generic/Modal.jsx";
 import { useDeleteDiscountMutation } from "../../redux/slice/discount/index.js";
 
 export default function DeleteDisk({ ID, }) {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import ImageUpload from "../../generic/imgUpload";
-import Modal from "../../generic/modal";
+import Modal from "../../generic/Modal";
 import {
   useCreateCategoriaMutation,
   useGetCategoryQuery,

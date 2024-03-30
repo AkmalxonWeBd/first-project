@@ -4,7 +4,7 @@ import { MdOutlineInsertPhoto } from "react-icons/md";
 import { toast } from "react-toastify";
 import { BiEdit } from "react-icons/bi";
 import axios from "axios";
-import Modal from "../../generic/modal";
+import Modal from "../../generic/Modal";
 import {useUpdateOrderMutation, useGetOrderQuery} from "../../redux/slice/order/order"
 
 const OrderUpdate = ({ object }) => {

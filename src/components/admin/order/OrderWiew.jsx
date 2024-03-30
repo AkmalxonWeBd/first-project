@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { toast } from "react-toastify";
-import Modal from "../../generic/modal";
+import Modal from "../../generic/Modal";
 import { useDeleteProductImgMutation } from "../../redux/slice/product";
 
 export default function OrderWiew({ items }) {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MdOutlineAddAPhoto, MdOutlineInsertPhoto } from "react-icons/md";
 import { toast } from "react-toastify";
 import ImageUpload from "../../ImageUpload/ImageUpload";
-import Modal from "../../generic/modal";
+import Modal from "../../generic/Modal";
 import { useCreateProductIdimgMutation } from "../../redux/slice/product";
 
 const AddImgUpload = ({ ID }) => {
